@@ -1,6 +1,6 @@
 import sys
 
-def is_valid_card(card_no):
+def is_valid(card_no):
   luhn_sum = _get_luhn_sum(card_no)
   length_of_card = len(card_no)
   return (length_of_card == 14 or length_of_card == 16) and luhn_sum % 10 == 0
@@ -33,4 +33,4 @@ def _sum_of_digits(num):
 if __name__ == "__main__":
   card_no = sys.argv[1]
   print "original number %s" % card_no
-  print is_valid_card(card_no)
+  print is_valid(card_no)
