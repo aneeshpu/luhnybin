@@ -17,6 +17,16 @@ class CreditCardTest(unittest.TestCase):
     credit_card = creditcard.CreditCard(card_no)
     self.assertFalse(credit_card.is_valid())
 
+  def test_14_digit_cards_that_do_not_pass_are_not_valid(self):
+    card_no = "36363636363636"
+    credit_card = creditcard.CreditCard(card_no)
+    self.assertFalse(credit_card.is_valid())
+
+  def test_14_digit_cards_are_valid_if_they_pass_luhn(self):
+    card_no = "26262626262626"
+    credit_card = creditcard.CreditCard(card_no)
+    self.assertTrue(credit_card.is_valid())
+
 
 if __name__ == "__main__":
   unittest.main()
